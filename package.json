@@ -1,0 +1,29 @@
+{
+	"name": "taiwan-weather",
+	"version": "0.0.1",
+	"description": "Fetch weather data of Taiwan",
+	"main": "taiwan-weather.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/VictorCazanave/taiwan-weather.git"
+	},
+	"keywords": [
+		"Taiwan",
+		"weather",
+		"forecast",
+		"open data"
+	],
+	"author": "Victor Cazanave <victor.cazanave@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/VictorCazanave/taiwan-weather/issues"
+	},
+	"homepage": "https://github.com/VictorCazanave/taiwan-weather#readme",
+	"dependencies": {
+		"got": "^8.0.1",
+		"unzipper": "^0.8.11"
+	}
+}
