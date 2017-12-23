@@ -1,9 +1,8 @@
-/* Dependencies */
-const fs = require('fs'),
-	unzipper = require('unzipper'),
-	got = require('got'),
-	xml2js = require('xml2js'),
-	DataEnum = require('./data-enum');
+const fs = require('fs');
+const unzipper = require('unzipper');
+const got = require('got');
+const xml2js = require('xml2js');
+const DataEnum = require('./data-enum');
 
 /* Private functions */
 function _getUrl(apiKey = '') {
@@ -14,20 +13,48 @@ function _getUrl(apiKey = '') {
 	return `http://opendata.cwb.gov.tw/opendataapi?dataid=${ DataEnum.Type.ALL }&authorizationkey=${ apiKey }`;
 }
 
+function _hasDirtyStreamError(res) {
+	return res.headers['content-type'] === 'text/plain;charset=UTF-8';
+}
+
+function _handleDirtyStreamError(res) {
+	let err = [];
+
+	return res.on('data', (chunk) => {
+			err.push(chunk);
+		})
+		.on('end', () => {
+			err = JSON.parse(err.toString());
+			console.error('[ERROR] (dirty) Getting HTTP stream:', err);
+			process.exit(9); // Exit with "Invalid Argument" status code
+		});
+}
+
 /* Public functions */
 function getStream(apiKey) {
-	console.log('[LOG] Getting stream');
+	const url = _getUrl(apiKey);
 
 	// Get stream from server
-	return got.stream(_getUrl(apiKey))
+	console.log('[LOG] Getting stream from', url);
+	return got.stream(url)
 
-		// Handle errors when reading stream
+		// Handle dirty errors
+		// API always returns a status code 200, even when request is not valid (wrong/no API key, wrong requested data...)
+		.on('response', (res) => {
+			if (_hasDirtyStreamError(res)) {
+				_handleDirtyStreamError(res);
+			}
+		})
+
+		// Handle clean errors (never happened for now)
 		.on('error', (err) => {
-			return console.error('[ERROR] Reading HTTP stream:', err);
+			console.error('[ERROR] Getting HTTP stream:', err);
 		})
 
 		// Parse unzipped files
-		.pipe(unzipper.Parse());
+		.pipe(unzipper.Parse().on('error', (err) => {
+			console.error('[ERROR] Unzipping files:', err);
+		}));
 }
 
 function convertToJson(xmlFileName) {
@@ -52,7 +79,6 @@ function getFiles(apiKey, {
 } = {}) {
 
 	// Initialize variables
-	//var filesRegExp = new RegExp(`\\w+\\_(${ dataFreq })\\_(${ dataLang })\\.(xml)`, 'ig');
 	const filesRegExp = new RegExp(`(${ dataLocation })\\_(${ dataFreq })\\_(${ dataLang })\\.(xml)`, 'ig');
 
 	// Check if output exists
@@ -83,9 +109,9 @@ function getFiles(apiKey, {
 						}
 					})
 
-					// Handle errors when writing files
+					// Handle errors writing files
 					.on('error', (err) => {
-						return console.error('[ERROR] Writing file:', err);
+						console.error('[ERROR] Writing file:', err);
 					});
 			} else {
 
@@ -95,11 +121,8 @@ function getFiles(apiKey, {
 		});
 }
 
-getFiles('YOUR API KEY', {
-	dataLocation: DataEnum.Loc.HSINCHU_CITY,
-	dataFreq: DataEnum.Freq.WEEKDAY,
-	dataLang: DataEnum.Lang.EN,
-	output: 'data',
-	prefix: Date.now() + '_',
-	toJson: false
-});
+module.exports = {
+	convertToJson,
+	getStream,
+	getFiles
+}
