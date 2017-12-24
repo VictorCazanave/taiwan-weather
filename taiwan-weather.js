@@ -1,7 +1,6 @@
 const http = require('http');
 const fs = require('fs');
 const unzipper = require('unzipper');
-const got = require('got');
 const xml2js = require('xml2js');
 const DataEnum = require('./data-enum');
 
@@ -122,6 +121,7 @@ function getFiles(stream, {
 				entry.autodrain();
 			}
 		});
+	ix
 }
 
 function get(apiKey, options) {
