@@ -1,0 +1,36 @@
+{
+	"name": "taiwan-weather",
+	"version": "1.0.0",
+	"description": "Fetch weather data of Taiwan",
+	"main": "taiwan-weather.js",
+	"scripts": {
+		"test": "./node_modules/mocha/bin/mocha test/taiwan-weather.spec.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/VictorCazanave/taiwan-weather.git"
+	},
+	"keywords": [
+		"Taiwan",
+		"weather",
+		"forecast",
+		"open data"
+	],
+	"author": "Victor Cazanave <victor.cazanave@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/VictorCazanave/taiwan-weather/issues"
+	},
+	"homepage": "https://github.com/VictorCazanave/taiwan-weather#readme",
+	"dependencies": {
+		"unzipper": "^0.8.11",
+		"xml2js": "^0.4.19"
+	},
+	"devDependencies": {
+		"chai": "^4.1.2",
+		"mocha": "^4.0.1",
+		"nock": "^9.1.5",
+		"sinon": "^4.1.3",
+		"sinon-chai": "^2.14.0"
+	}
+}
