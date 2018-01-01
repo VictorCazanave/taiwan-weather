@@ -210,7 +210,7 @@ describe('Taiwan Weather', () => {
 				});
 			});
 
-			it('should call calback function without error and with data', (done) => {
+			it('should call callback function without error and with data', (done) => {
 				tw.getStream(apiKey, null, (err, stream) => {
 					expect(err).to.be.null;
 					expect(stream).not.to.be.null;
@@ -219,6 +219,10 @@ describe('Taiwan Weather', () => {
 				});
 			});
 		});
+
+		// TODO: Finish tests
+		describe('#getFiles', () => {});
+		describe('#get', () => {});
 
 
 	});
