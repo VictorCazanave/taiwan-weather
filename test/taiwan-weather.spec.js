@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const sinonChai = require("sinon-chai");
 const nock = require('nock');
 const http = require('http');
-const tw = require('../lib/taiwan-weather');
+const tw = require('../index');
 const expect = chai.expect;
 chai.use(sinonChai);
 
