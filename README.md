@@ -3,7 +3,7 @@
 A node.js module to fetch and filter weather data from [Taiwan Central Weather Bureau API](http://opendata.cwb.gov.tw).
 
 ## Installation
-`npm taiwan-weather`
+`npm install taiwan-weather`
 
 ## Usage
 To download in the current directory all the XML files provided by the API:
@@ -118,12 +118,11 @@ Callback function called when all the files have been downloaded.
 #### Example
 ```javascript
 const tw = require('taiwan-weather');
-const DataEnum = require('data-enum');
 
 tw.get('YOUR_API_KEY', {
-	dataLocation: DataEnum.Loc.HSINCHU_CITY,
-	dataFreq: DataEnum.Freq.WEEKDAY,
-	dataLang: DataEnum.Lang.EN,
+	dataLocation: tw.DataEnum.Loc.HSINCHU_CITY,
+	dataFreq: tw.DataEnum.Freq.WEEKDAY,
+	dataLang: tw.DataEnum.Lang.EN,
 	output: 'data',
 	prefix: Date.now() + '_',
 	toJson: true
