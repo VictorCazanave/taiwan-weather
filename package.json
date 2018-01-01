@@ -4,7 +4,7 @@
 	"description": "Fetch weather data of Taiwan",
 	"main": "index.js",
 	"scripts": {
-		"test": "./node_modules/mocha/bin/mocha test/taiwan-weather.spec.js"
+		"test": "./node_modules/mocha/bin/mocha tests/"
 	},
 	"repository": {
 		"type": "git",
