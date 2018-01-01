@@ -33,7 +33,7 @@ describe('Taiwan Weather', () => {
 			it('should log warning', (done) => {
 				sinon.spy(console, 'warn');
 
-				tw.getStream(null, null, () => {
+				tw.getStream(null, () => {
 					expect(console.warn).to.have.been.called;
 
 					console.warn.restore();
@@ -44,7 +44,7 @@ describe('Taiwan Weather', () => {
 			it('should call http.get once with empty API key', (done) => {
 				sinon.spy(http, 'get');
 
-				tw.getStream(null, null, () => {
+				tw.getStream(null, () => {
 					expect(http.get).to.have.been.calledOnce;
 					expect(http.get).to.have.been.calledWith(`${ host }${ path }${ query }`);
 
@@ -57,7 +57,7 @@ describe('Taiwan Weather', () => {
 			it('should log error', (done) => {
 				sinon.spy(console, 'error');
 
-				tw.getStream(null, null, () => {
+				tw.getStream(null, () => {
 					expect(console.error).to.have.been.called;
 
 					console.error.restore();
@@ -66,7 +66,7 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should call calback function with error', (done) => {
-				tw.getStream(null, null, (err) => {
+				tw.getStream(null, (err) => {
 					expect(err).not.to.be.null;
 					expect(err instanceof Error).to.be.true;
 
@@ -96,7 +96,7 @@ describe('Taiwan Weather', () => {
 			it('should call http.get once with wrong API key', (done) => {
 				sinon.spy(http, 'get');
 
-				tw.getStream(apiKey, null, () => {
+				tw.getStream(apiKey, () => {
 					expect(http.get).to.have.been.calledOnce;
 					expect(http.get).to.have.been.calledWith(`${ host }${ path }${ query }${ apiKey }`);
 
@@ -109,7 +109,7 @@ describe('Taiwan Weather', () => {
 			it('should log error', (done) => {
 				sinon.spy(console, 'error');
 
-				tw.getStream(apiKey, null, () => {
+				tw.getStream(apiKey, () => {
 					expect(console.error).to.have.been.called;
 
 					console.error.restore();
@@ -118,7 +118,7 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should call calback function with error', (done) => {
-				tw.getStream(apiKey, null, (err) => {
+				tw.getStream(apiKey, (err) => {
 					expect(err).not.to.be.null;
 					expect(err instanceof Error).to.be.true;
 
@@ -144,7 +144,7 @@ describe('Taiwan Weather', () => {
 			it('should call http.get once with API key', (done) => {
 				sinon.spy(http, 'get');
 
-				tw.getStream(apiKey, null, () => {
+				tw.getStream(apiKey, () => {
 					expect(http.get).to.have.been.calledOnce;
 					expect(http.get).to.have.been.calledWith(`${ host }${ path }${ query }${ apiKey }`);
 
@@ -157,7 +157,7 @@ describe('Taiwan Weather', () => {
 			it('should log error', (done) => {
 				sinon.spy(console, 'error');
 
-				tw.getStream(apiKey, null, () => {
+				tw.getStream(apiKey, () => {
 					expect(console.error).to.have.been.called;
 
 					console.error.restore();
@@ -166,7 +166,7 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should call calback function with error', (done) => {
-				tw.getStream(apiKey, null, (err) => {
+				tw.getStream(apiKey, (err) => {
 					expect(err).not.to.be.null;
 					expect(err instanceof Error).to.be.true;
 
@@ -189,7 +189,7 @@ describe('Taiwan Weather', () => {
 			it('should call http.get once with API key', (done) => {
 				sinon.spy(http, 'get');
 
-				tw.getStream(apiKey, null, () => {
+				tw.getStream(apiKey, () => {
 					expect(http.get).to.have.been.calledOnce;
 					expect(http.get).to.have.been.calledWith(`${ host }${ path }${ query }${ apiKey }`);
 
@@ -198,11 +198,10 @@ describe('Taiwan Weather', () => {
 				});
 			});
 
-
 			it('should not log error', (done) => {
 				sinon.spy(console, 'error');
 
-				tw.getStream(apiKey, null, () => {
+				tw.getStream(apiKey, () => {
 					expect(console.error).not.to.have.been.called;
 
 					console.error.restore();
@@ -211,7 +210,7 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should call callback function without error and with data', (done) => {
-				tw.getStream(apiKey, null, (err, stream) => {
+				tw.getStream(apiKey, (err, stream) => {
 					expect(err).to.be.null;
 					expect(stream).not.to.be.null;
 
