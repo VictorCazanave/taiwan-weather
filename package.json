@@ -2,7 +2,7 @@
 	"name": "taiwan-weather",
 	"version": "1.0.0-beta.1",
 	"description": "Fetch weather data of Taiwan",
-	"main": "index.js",
+	"main": "./index",
 	"scripts": {
 		"test": "./node_modules/mocha/bin/mocha tests/"
 	},
