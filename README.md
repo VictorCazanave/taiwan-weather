@@ -25,9 +25,9 @@ tw.getStream('YOUR_API_KEY', (err, stream) => {
 ```
 
 ## Data
-For now you can only fetch [all towns and villages in Taiwan forecast data](http://opendata.cwb.gov.tw/datalist) (F-D0047-093).
+For now you can only fetch [all towns and villages in Taiwan forecast data](http://opendata.cwb.gov.tw/catalog?group=f&dataid=D0047-093) (F-D0047-093).
 
-Other data may be added later.
+[Other data](http://opendata.cwb.gov.tw/datalist) may be added later.
 
 ### Filters
 You can filter the data:

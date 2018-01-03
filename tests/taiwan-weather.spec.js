@@ -222,7 +222,5 @@ describe('Taiwan Weather', () => {
 		// TODO: Finish tests
 		describe('#getFiles', () => {});
 		describe('#get', () => {});
-
-
 	});
 });
