@@ -55,7 +55,7 @@ Mandatory API key needed to access the API.
 Type: `Object`
 
 ##### loc
-Type: `String` or `Array of String`
+Type: `String` or `Array<String>`
 
 Default: `DataEnum.Loc.ALL` (`'63|64|65|66|67|68|09007|090020|10002|10004|10005|10007|10008|10009|10010|10013|10014|10015|10016|10017|10018|10020'`)
 
@@ -64,7 +64,7 @@ Id(s) of the location(s) to download.
 `DataEnum.Loc` let you use the location's name instead of its id.
 
 ##### freq
-Type: `String` or `Array of String`
+Type: `String` or `Array<String>`
 
 Default: `DataEnum.Freq.ALL` (`'Weekday|72hr'`)
 
@@ -73,7 +73,7 @@ Label(s) of the forecast frequency(ies).
 `DataEnum.Freq` let you use a more consistent label.
 
 ##### lang
-Type: `String` or `Array of String`
+Type: `String` or `Array<String>`
 
 Default: `DataEnum.Lang.ALL` (`'EN|ZH'`)
 
