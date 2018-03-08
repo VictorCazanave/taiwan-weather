@@ -125,7 +125,7 @@ tw.get('YOUR_API_KEY', {
 	prefix: Date.now() + '_',
 	toJson: true
 }, () => {
-  // Do something with this file
+  // Do something with these files
 });
 ```
 
