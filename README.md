@@ -47,44 +47,42 @@ You can choose where and how to create the files:
 Download the weather forecast files provided by the API.
 
 #### apiKey
-Type: `string`
+Type: `String`
 
 Mandatory API key needed to access the API.
 
 #### options
 Type: `Object`
 
-##### dataLocation
-Type: `string`
+##### loc
+Type: `String` or `Array of String`
 
 Default: `DataEnum.Loc.ALL` (`'63|64|65|66|67|68|09007|090020|10002|10004|10005|10007|10008|10009|10010|10013|10014|10015|10016|10017|10018|10020'`)
 
-Id of the location to download.
+Id(s) of the location(s) to download.
 
 `DataEnum.Loc` let you use the location's name instead of its id.
 
-For now you can only choose one location or all locations.
-
-##### dataFreq
-Type: `string`
+##### freq
+Type: `String` or `Array of String`
 
 Default: `DataEnum.Freq.ALL` (`'Weekday|72hr'`)
 
-Label of the forecast frequency.
+Label(s) of the forecast frequency(ies).
 
 `DataEnum.Freq` let you use a more consistent label.
 
-##### dataLang
-Type: `string`
+##### lang
+Type: `String` or `Array of String`
 
 Default: `DataEnum.Lang.ALL` (`'EN|ZH'`)
 
-Label of the data language.
+Label(s) of the data language(s).
 
 `DataEnum.Lang` let you use a more consistent label.
 
 ##### output
-Type: `string`
+Type: `String`
 
 Default: `'.'`
 
@@ -93,7 +91,7 @@ Directory to download the files.
 If it does not exist, it will be created automatically.
 
 ##### prefix
-Type: `string`
+Type: `String`
 
 Default: `''`
 
@@ -120,9 +118,9 @@ Callback function called when all the files have been downloaded.
 const tw = require('taiwan-weather');
 
 tw.get('YOUR_API_KEY', {
-	dataLocation: tw.DataEnum.Loc.HSINCHU_CITY,
-	dataFreq: tw.DataEnum.Freq.WEEKDAY,
-	dataLang: tw.DataEnum.Lang.EN,
+	loc: [tw.DataEnum.Loc.TAIPEI_CITY, tw.DataEnum.Loc.HSINCHU_CITY],
+	freq: tw.DataEnum.Freq.WEEKDAY,
+	lang: tw.DataEnum.Lang.EN,
 	output: 'data',
 	prefix: Date.now() + '_',
 	toJson: true
@@ -134,8 +132,10 @@ tw.get('YOUR_API_KEY', {
 ### getStream(apiKey, [callback])
 Fetch weather forecast data (stream) provided by the API.
 
+Data can't be filtered in the stream.
+
 #### apiKey
-Type: `string`
+Type: `String`
 
 Mandatory API key needed to access the API.
 
