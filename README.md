@@ -52,7 +52,7 @@ Download the weather forecast files provided by the API.
 #### apiKey
 Type: `String`
 
-Mandatory API key needed to access the API.
+Required API key to access the API.
 
 #### options
 Type: `Object`
@@ -145,7 +145,7 @@ Data can't be filtered in the stream.
 #### apiKey
 Type: `String`
 
-Mandatory API key needed to access the API.
+Required API key to access the API.
 
 #### callback
 Type: `Function`
