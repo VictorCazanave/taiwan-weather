@@ -10,7 +10,7 @@ To download in the current directory all the XML files provided by the API:
 ```javascript
 const tw = require('taiwan-weather');
 
-tw.get('YOUR_API_KEY', null, () => {
+tw.get('YOUR_API_KEY', null, (err) => {
   // Callback function to use created data files
 });
 ```
@@ -109,7 +109,8 @@ It will not delete the XML files.
 #### callback
 Type: `Function`
 
-Parameters: none
+Parameters:
+* `err`: error thrown when trying to fetch data or create files
 
 Callback function called when all the files have been downloaded.
 
@@ -124,8 +125,12 @@ tw.get('YOUR_API_KEY', {
 	output: 'data',
 	prefix: Date.now() + '_',
 	toJson: true
-}, () => {
-  // Do something with these files
+}, (err) => {
+	if(err) {
+		// Do something with this error
+	} else {
+		// Do something with these files
+	}
 });
 ```
 
