@@ -57,29 +57,29 @@ Type: `Object`
 ##### loc
 Type: `String` or `Array<String>`
 
-Default: `DataEnum.Loc.ALL` (`'63|64|65|66|67|68|09007|090020|10002|10004|10005|10007|10008|10009|10010|10013|10014|10015|10016|10017|10018|10020'`)
+Default: `DataEnum.Loc.ALL`
 
 Id(s) of the location(s) to download.
 
-`DataEnum.Loc` let you use the location's name instead of its id.
+See [`DataEnum.Loc`](#dataenum.loc).
 
 ##### freq
 Type: `String` or `Array<String>`
 
-Default: `DataEnum.Freq.ALL` (`'Weekday|72hr'`)
+Default: `DataEnum.Freq.ALL`
 
 Label(s) of the forecast frequency(ies).
 
-`DataEnum.Freq` let you use a more consistent label.
+See [`DataEnum.Freq`](#dataenum.freq).
 
 ##### lang
 Type: `String` or `Array<String>`
 
-Default: `DataEnum.Lang.ALL` (`'EN|ZH'`)
+Default: `DataEnum.Lang.ALL`
 
 Label(s) of the data language(s).
 
-`DataEnum.Lang` let you use a more consistent label.
+See [`DataEnum.Lang`](#dataenum.lang).
 
 ##### output
 Type: `String`
@@ -167,6 +167,47 @@ tw.getStream('YOUR_API_KEY', (err, stream) => {
   }
 });
 ```
+
+### DataEnum
+Enum to use more readable and consistent labels instead of technical ids.
+
+#### DataEnum.Loc
+Available locations:
+*	`ALL` (all locations)
+* `CHANGHUA_COUNTY`
+* `CHIAYI_CITY`
+* `CHIAYI_COUNTY`
+* `HSINCHU_CITY`
+* `HSINCHU_COUNTY`
+* `HUALIEN_COUNTY`
+* `KAOHSIUNG_CITY`
+* `KEELUNG_CITY`
+* `KINMEN_AREA`
+* `MATSU_AREA`
+* `MIAOLI_COUNTY`
+* `NANTOU_COUNTY`
+* `NEW_TAIPEI_CITY`
+* `PENGHU_COUNTY`
+* `PINGTUNG_COUNTY`
+* `TAICHUNG_CITY`
+* `TAINAN_CITY`
+* `TAIPEI_CITY`
+* `TAITUNG_COUNTY`
+* `TAOYUAN_CITY`
+* `YILAN_COUNTY`
+* `YUNLIN_COUNTY`
+
+#### DataEnum.Freq
+Available frequencies:
+* `ALL` (all frequencies)
+* `H72`
+* `WEEKDAY`
+
+#### DataEnum.Lang
+Available languages:
+* `ALL` (all languages)
+* `EN`
+* `ZH`
 
 ## Contribution
 
