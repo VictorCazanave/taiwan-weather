@@ -9,11 +9,11 @@ const expect = chai.expect;
 chai.use(sinonChai);
 
 describe('Taiwan Weather', () => {
-	const host = 'http://opendata.cwb.gov.tw';
-	const path = '/opendataapi';
-	const query = '?dataid=F-D0047-093&authorizationkey='
 
 	describe('#getStream', () => {
+		const host = 'http://opendata.cwb.gov.tw';
+		const path = '/opendataapi';
+		const query = '?dataid=F-D0047-093&authorizationkey='
 
 		describe('Without API key', () => {
 
@@ -175,8 +175,6 @@ describe('Taiwan Weather', () => {
 		});
 	});
 
-
-	// TODO: Finish tests
 	describe('#get', () => {
 
 		describe('With error from getStream', () => {
