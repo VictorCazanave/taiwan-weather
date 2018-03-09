@@ -61,7 +61,7 @@ Default: `DataEnum.Loc.ALL`
 
 Id(s) of the location(s) to download.
 
-See [`DataEnum.Loc`](#dataenum.loc).
+See [`DataEnum.Loc`](#dataenum-loc).
 
 ##### freq
 Type: `String` or `Array<String>`
@@ -79,7 +79,7 @@ Default: `DataEnum.Lang.ALL`
 
 Label(s) of the data language(s).
 
-See [`DataEnum.Lang`](#dataenum.lang).
+See [`DataEnum.Lang`](#dataenum-lang).
 
 ##### output
 Type: `String`
@@ -171,7 +171,7 @@ tw.getStream('YOUR_API_KEY', (err, stream) => {
 ### DataEnum
 Enum to use more readable and consistent labels instead of technical ids.
 
-#### DataEnum.Loc
+#### DataEnum Loc
 Available locations:
 *	`ALL` (all locations)
 * `CHANGHUA_COUNTY`
