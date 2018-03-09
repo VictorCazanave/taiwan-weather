@@ -10,7 +10,7 @@ To download in the current directory all the XML files provided by the API:
 ```javascript
 const tw = require('taiwan-weather');
 
-tw.get('YOUR_API_KEY', null, () => {
+tw.get('YOUR_API_KEY', null, (err) => {
   // Callback function to use created data files
 });
 ```
@@ -47,44 +47,42 @@ You can choose where and how to create the files:
 Download the weather forecast files provided by the API.
 
 #### apiKey
-Type: `string`
+Type: `String`
 
 Mandatory API key needed to access the API.
 
 #### options
 Type: `Object`
 
-##### dataLocation
-Type: `string`
+##### loc
+Type: `String` or `Array<String>`
 
-Default: `DataEnum.Loc.ALL` (`'63|64|65|66|67|68|09007|090020|10002|10004|10005|10007|10008|10009|10010|10013|10014|10015|10016|10017|10018|10020'`)
+Default: `DataEnum.Loc.ALL`
 
-Id of the location to download.
+Id(s) of the location(s) to download.
 
-`DataEnum.Loc` let you use the location's name instead of its id.
+See [DataEnum.Loc](#dataenumloc).
 
-For now you can only choose one location or all locations.
+##### freq
+Type: `String` or `Array<String>`
 
-##### dataFreq
-Type: `string`
+Default: `DataEnum.Freq.ALL`
 
-Default: `DataEnum.Freq.ALL` (`'Weekday|72hr'`)
+Label(s) of the forecast frequency(ies).
 
-Label of the forecast frequency.
+See [DataEnum.Freq](#dataenumfreq).
 
-`DataEnum.Freq` let you use a more consistent label.
+##### lang
+Type: `String` or `Array<String>`
 
-##### dataLang
-Type: `string`
+Default: `DataEnum.Lang.ALL`
 
-Default: `DataEnum.Lang.ALL` (`'EN|ZH'`)
+Label(s) of the data language(s).
 
-Label of the data language.
-
-`DataEnum.Lang` let you use a more consistent label.
+See [DataEnum.Lang](#dataenumlang).
 
 ##### output
-Type: `string`
+Type: `String`
 
 Default: `'.'`
 
@@ -93,7 +91,7 @@ Directory to download the files.
 If it does not exist, it will be created automatically.
 
 ##### prefix
-Type: `string`
+Type: `String`
 
 Default: `''`
 
@@ -111,7 +109,8 @@ It will not delete the XML files.
 #### callback
 Type: `Function`
 
-Parameters: none
+Parameters:
+* `err`: error thrown when trying to fetch data or create files
 
 Callback function called when all the files have been downloaded.
 
@@ -120,22 +119,28 @@ Callback function called when all the files have been downloaded.
 const tw = require('taiwan-weather');
 
 tw.get('YOUR_API_KEY', {
-	dataLocation: tw.DataEnum.Loc.HSINCHU_CITY,
-	dataFreq: tw.DataEnum.Freq.WEEKDAY,
-	dataLang: tw.DataEnum.Lang.EN,
+	loc: [tw.DataEnum.Loc.TAIPEI_CITY, tw.DataEnum.Loc.HSINCHU_CITY],
+	freq: tw.DataEnum.Freq.WEEKDAY,
+	lang: tw.DataEnum.Lang.EN,
 	output: 'data',
 	prefix: Date.now() + '_',
 	toJson: true
-}, () => {
-  // Do something with this file
+}, (err) => {
+	if(err) {
+		// Do something with this error
+	} else {
+		// Do something with these files
+	}
 });
 ```
 
 ### getStream(apiKey, [callback])
 Fetch weather forecast data (stream) provided by the API.
 
+Data can't be filtered in the stream.
+
 #### apiKey
-Type: `string`
+Type: `String`
 
 Mandatory API key needed to access the API.
 
@@ -162,6 +167,47 @@ tw.getStream('YOUR_API_KEY', (err, stream) => {
   }
 });
 ```
+
+### DataEnum
+Enum to use more readable and consistent labels instead of technical ids.
+
+#### DataEnum.Loc
+Available locations:
+*	`ALL` (all locations)
+* `CHANGHUA_COUNTY`
+* `CHIAYI_CITY`
+* `CHIAYI_COUNTY`
+* `HSINCHU_CITY`
+* `HSINCHU_COUNTY`
+* `HUALIEN_COUNTY`
+* `KAOHSIUNG_CITY`
+* `KEELUNG_CITY`
+* `KINMEN_AREA`
+* `MATSU_AREA`
+* `MIAOLI_COUNTY`
+* `NANTOU_COUNTY`
+* `NEW_TAIPEI_CITY`
+* `PENGHU_COUNTY`
+* `PINGTUNG_COUNTY`
+* `TAICHUNG_CITY`
+* `TAINAN_CITY`
+* `TAIPEI_CITY`
+* `TAITUNG_COUNTY`
+* `TAOYUAN_CITY`
+* `YILAN_COUNTY`
+* `YUNLIN_COUNTY`
+
+#### DataEnum.Freq
+Available frequencies:
+* `ALL` (all frequencies)
+* `H72`
+* `WEEKDAY`
+
+#### DataEnum.Lang
+Available languages:
+* `ALL` (all languages)
+* `EN`
+* `ZH`
 
 ## Contribution
 

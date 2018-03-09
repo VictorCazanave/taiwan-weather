@@ -1,6 +1,6 @@
 {
 	"name": "taiwan-weather",
-	"version": "1.0.0-beta.2",
+	"version": "1.0.0",
 	"description": "Fetch weather data of Taiwan",
 	"main": "./index",
 	"scripts": {
@@ -28,6 +28,7 @@
 	},
 	"devDependencies": {
 		"chai": "^4.1.2",
+		"eslint": "^4.18.2",
 		"mocha": "^4.0.1",
 		"nock": "^9.1.5",
 		"sinon": "^4.1.3",
