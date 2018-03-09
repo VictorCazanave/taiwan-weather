@@ -70,7 +70,7 @@ Default: `DataEnum.Freq.ALL`
 
 Label(s) of the forecast frequency(ies).
 
-See [`DataEnum.Freq`](#dataenum.freq).
+See [`DataEnum.Freq`](#dataenumfreq).
 
 ##### lang
 Type: `String` or `Array<String>`
