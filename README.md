@@ -1,7 +1,6 @@
 # taiwan-weather
 
 [![Inline docs](http://inch-ci.org/github/VictorCazanave/taiwan-weather.svg?branch=master)](http://inch-ci.org/github/VictorCazanave/taiwan-weather)
-
 [![NSP Status](https://nodesecurity.io/orgs/victorcazanave/projects/9fa8a415-7030-4fad-b9ee-343afe64159d/badge)](https://nodesecurity.io/orgs/victorcazanave/projects/9fa8a415-7030-4fad-b9ee-343afe64159d)
 
 A node.js module to fetch and filter weather data from [Taiwan Central Weather Bureau API](http://opendata.cwb.gov.tw).
