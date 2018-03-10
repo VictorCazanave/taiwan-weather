@@ -32,14 +32,17 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should log warning', (done) => {
-				sinon.spy(console, 'warn');
+				const opt = {
+					debug: true // To display warning log
+				};
+				sinon.spy(__logger, 'warn');
 
 				tw.getStream(null, () => {
-					expect(console.warn).to.have.been.called;
+					expect(__logger.warn).to.have.been.called;
 
-					console.warn.restore();
+					__logger.warn.restore();
 					done();
-				});
+				}, opt);
 			});
 
 			it('should call http.get once with empty API key', (done) => {
@@ -51,7 +54,7 @@ describe('Taiwan Weather', () => {
 
 					http.get.restore();
 					done();
-				});
+				}, null);
 			});
 
 			it('should call callback function with error', (done) => {
@@ -60,7 +63,7 @@ describe('Taiwan Weather', () => {
 					expect(err instanceof Error).to.be.true;
 
 					done();
-				});
+				}, null);
 			});
 
 		});
@@ -91,7 +94,7 @@ describe('Taiwan Weather', () => {
 
 					http.get.restore();
 					done();
-				});
+				}, null);
 			});
 
 			it('should call callback function with error', (done) => {
@@ -100,7 +103,7 @@ describe('Taiwan Weather', () => {
 					expect(err instanceof Error).to.be.true;
 
 					done();
-				});
+				}, null);
 			});
 
 		});
@@ -127,7 +130,7 @@ describe('Taiwan Weather', () => {
 
 					http.get.restore();
 					done();
-				});
+				}, null);
 			});
 
 			it('should call calback function with error', (done) => {
@@ -136,7 +139,7 @@ describe('Taiwan Weather', () => {
 					expect(err instanceof Error).to.be.true;
 
 					done();
-				});
+				}, null);
 			});
 		});
 
@@ -160,7 +163,7 @@ describe('Taiwan Weather', () => {
 
 					http.get.restore();
 					done();
-				});
+				}, null);
 			});
 
 			it('should call callback function without error and with data', (done) => {
@@ -169,7 +172,7 @@ describe('Taiwan Weather', () => {
 					expect(stream).not.to.be.null;
 
 					done();
-				});
+				}, null);
 			});
 
 		});
@@ -199,12 +202,12 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should log error', (done) => {
-				sinon.spy(console, 'error');
+				sinon.spy(__logger, 'error');
 
 				tw.get(null, {}, () => {
-					expect(console.error).to.have.been.called;
+					expect(__logger.error).to.have.been.called;
 
-					console.error.restore();
+					__logger.error.restore();
 					done();
 				});
 			});
@@ -257,12 +260,12 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should log error', (done) => {
-				sinon.spy(console, 'error');
+				sinon.spy(__logger, 'error');
 
 				tw.get(null, {}, () => {
-					expect(console.error).to.have.been.called;
+					expect(__logger.error).to.have.been.called;
 
-					console.error.restore();
+					__logger.error.restore();
 					done();
 				});
 			});
@@ -304,12 +307,12 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should not log error', (done) => {
-				sinon.spy(console, 'error');
+				sinon.spy(__logger, 'error');
 
 				tw.get(null, {}, () => {
-					expect(console.error).to.not.have.been.called;
+					expect(__logger.error).to.not.have.been.called;
 
-					console.error.restore();
+					__logger.error.restore();
 					done();
 				});
 			});

@@ -1,6 +1,6 @@
 {
 	"name": "taiwan-weather",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Fetch weather data of Taiwan",
 	"main": "./index",
 	"scripts": {
@@ -23,6 +23,7 @@
 	},
 	"homepage": "https://github.com/VictorCazanave/taiwan-weather#readme",
 	"dependencies": {
+		"simple-node-logger": "^0.93.37",
 		"unzipper": "^0.8.11",
 		"xml2js": "^0.4.19"
 	},
