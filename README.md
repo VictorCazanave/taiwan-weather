@@ -27,6 +27,7 @@ tw.getStream('YOUR_API_KEY', (err, stream) => {
   // Callback function to handle data stream from API
 });
 ```
+To use command line: [taiwan-weather-cli](https://www.npmjs.com/package/taiwan-weather-cli)
 
 ## Data
 For now you can only fetch ~~[all towns and villages in Taiwan forecast data](http://opendata.cwb.gov.tw/catalog?group=f&dataid=D0047-093) (F-D0047-093)~~ (broken link).
