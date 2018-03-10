@@ -32,12 +32,15 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should log warning', (done) => {
-				sinon.spy(console, 'warn');
+				const opt = {
+					debug: true // To display warning log
+				};
+				sinon.spy(__logger, 'warn');
 
-				tw.getStream(null, () => {
-					expect(console.warn).to.have.been.called;
+				tw.getStream(null, opt, () => {
+					expect(__logger.warn).to.have.been.called;
 
-					console.warn.restore();
+					__logger.warn.restore();
 					done();
 				});
 			});
@@ -45,7 +48,7 @@ describe('Taiwan Weather', () => {
 			it('should call http.get once with empty API key', (done) => {
 				sinon.spy(http, 'get');
 
-				tw.getStream(null, () => {
+				tw.getStream(null, null, () => {
 					expect(http.get).to.have.been.calledOnce;
 					expect(http.get).to.have.been.calledWith(`${ host }${ path }${ query }`);
 
@@ -55,7 +58,7 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should call callback function with error', (done) => {
-				tw.getStream(null, (err) => {
+				tw.getStream(null, null, (err) => {
 					expect(err).not.to.be.null;
 					expect(err instanceof Error).to.be.true;
 
@@ -85,7 +88,7 @@ describe('Taiwan Weather', () => {
 			it('should call http.get once with wrong API key', (done) => {
 				sinon.spy(http, 'get');
 
-				tw.getStream(apiKey, () => {
+				tw.getStream(apiKey, null, () => {
 					expect(http.get).to.have.been.calledOnce;
 					expect(http.get).to.have.been.calledWith(`${ host }${ path }${ query }${ apiKey }`);
 
@@ -95,7 +98,7 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should call callback function with error', (done) => {
-				tw.getStream(apiKey, (err) => {
+				tw.getStream(apiKey, null, (err) => {
 					expect(err).not.to.be.null;
 					expect(err instanceof Error).to.be.true;
 
@@ -121,7 +124,7 @@ describe('Taiwan Weather', () => {
 			it('should call http.get once with API key', (done) => {
 				sinon.spy(http, 'get');
 
-				tw.getStream(apiKey, () => {
+				tw.getStream(apiKey, null, () => {
 					expect(http.get).to.have.been.calledOnce;
 					expect(http.get).to.have.been.calledWith(`${ host }${ path }${ query }${ apiKey }`);
 
@@ -131,7 +134,7 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should call calback function with error', (done) => {
-				tw.getStream(apiKey, (err) => {
+				tw.getStream(apiKey, null, (err) => {
 					expect(err).not.to.be.null;
 					expect(err instanceof Error).to.be.true;
 
@@ -154,7 +157,7 @@ describe('Taiwan Weather', () => {
 			it('should call http.get once with API key', (done) => {
 				sinon.spy(http, 'get');
 
-				tw.getStream(apiKey, () => {
+				tw.getStream(apiKey, null, () => {
 					expect(http.get).to.have.been.calledOnce;
 					expect(http.get).to.have.been.calledWith(`${ host }${ path }${ query }${ apiKey }`);
 
@@ -164,7 +167,7 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should call callback function without error and with data', (done) => {
-				tw.getStream(apiKey, (err, stream) => {
+				tw.getStream(apiKey, null, (err, stream) => {
 					expect(err).to.be.null;
 					expect(stream).not.to.be.null;
 
@@ -199,12 +202,12 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should log error', (done) => {
-				sinon.spy(console, 'error');
+				sinon.spy(__logger, 'error');
 
 				tw.get(null, {}, () => {
-					expect(console.error).to.have.been.called;
+					expect(__logger.error).to.have.been.called;
 
-					console.error.restore();
+					__logger.error.restore();
 					done();
 				});
 			});
@@ -257,12 +260,12 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should log error', (done) => {
-				sinon.spy(console, 'error');
+				sinon.spy(__logger, 'error');
 
 				tw.get(null, {}, () => {
-					expect(console.error).to.have.been.called;
+					expect(__logger.error).to.have.been.called;
 
-					console.error.restore();
+					__logger.error.restore();
 					done();
 				});
 			});
@@ -304,12 +307,12 @@ describe('Taiwan Weather', () => {
 			});
 
 			it('should not log error', (done) => {
-				sinon.spy(console, 'error');
+				sinon.spy(__logger, 'error');
 
 				tw.get(null, {}, () => {
-					expect(console.error).to.not.have.been.called;
+					expect(__logger.error).to.not.have.been.called;
 
-					console.error.restore();
+					__logger.error.restore();
 					done();
 				});
 			});
