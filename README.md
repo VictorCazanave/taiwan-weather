@@ -28,9 +28,12 @@ tw.getStream('YOUR_API_KEY', (err, stream) => {
 ```
 
 ## Data
-For now you can only fetch [all towns and villages in Taiwan forecast data](http://opendata.cwb.gov.tw/catalog?group=f&dataid=D0047-093) (F-D0047-093).
+For now you can only fetch ~~[all towns and villages in Taiwan forecast data](http://opendata.cwb.gov.tw/catalog?group=f&dataid=D0047-093) (F-D0047-093)~~ (broken link).
 
 [Other data](http://opendata.cwb.gov.tw/datalist) may be added later.
+
+### Usage
+[CWB data usage instructions](http://opendata.cwb.gov.tw/usages)
 
 ### Filters
 You can filter the data:
@@ -56,6 +59,8 @@ Required API key to access the API.
 
 #### options
 Type: `Object`
+
+Optional parameters to save data.
 
 ##### loc
 Type: `String` or `Array<String>`
@@ -109,6 +114,13 @@ Convert downloaded XML files to JSON files.
 
 It will not delete the XML files.
 
+##### debug
+Type: `Boolean`
+
+Default: `false`
+
+Display debug, info and warn logs instead of only error logs.
+
 #### callback
 Type: `Function`
 
@@ -127,7 +139,8 @@ tw.get('YOUR_API_KEY', {
 	lang: tw.DataEnum.Lang.EN,
 	output: 'data',
 	prefix: Date.now() + '_',
-	toJson: true
+	toJson: true,
+	debug: true
 }, (err) => {
 	if(err) {
 		// Do something with this error
@@ -158,6 +171,20 @@ Callback function called when the data stream is available.
 
 The API returns compressed (zip) files.
 
+#### options
+Type: `Object`
+
+Optional parameters to get data stream.
+
+Its position is not very good but it was the only way to be backwards-compatible. This will be fixed in version 2.
+
+##### debug
+Type: `Boolean`
+
+Default: `false`
+
+Display debug, info and warn logs instead of only error logs.
+
 #### Example
 ```javascript
 const tw = require('taiwan-weather');
@@ -168,7 +195,7 @@ tw.getStream('YOUR_API_KEY', (err, stream) => {
   } else {
     // Do something with this stream    
   }
-});
+}, {debug: true});
 ```
 
 ### DataEnum
