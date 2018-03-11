@@ -1,6 +1,6 @@
 {
 	"name": "taiwan-weather",
-	"version": "1.1.2",
+	"version": "1.1.3",
 	"description": "Fetch weather data of Taiwan",
 	"main": "./index",
 	"scripts": {
