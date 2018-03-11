@@ -206,6 +206,7 @@ Enum to use more readable and consistent labels instead of technical ids.
 #### DataEnum.Loc
 Available locations:
 *	`ALL` (all locations)
+* `TAIWAN` (one file containing 22 counties/cities)
 * `CHANGHUA_COUNTY`
 * `CHIAYI_CITY`
 * `CHIAYI_COUNTY`
