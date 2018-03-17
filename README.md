@@ -1,5 +1,6 @@
 # taiwan-weather
 
+[![npm version](https://badge.fury.io/js/taiwan-weather.svg)](https://badge.fury.io/js/taiwan-weather)
 [![Dependency Status](https://david-dm.org/VictorCazanave/taiwan-weather.svg)](https://david-dm.org/VictorCazanave/taiwan-weather)
 [![NSP Status](https://nodesecurity.io/orgs/victorcazanave/projects/9fa8a415-7030-4fad-b9ee-343afe64159d/badge)](https://nodesecurity.io/orgs/victorcazanave/projects/9fa8a415-7030-4fad-b9ee-343afe64159d)
 [![Inline docs](http://inch-ci.org/github/VictorCazanave/taiwan-weather.svg?branch=master)](http://inch-ci.org/github/VictorCazanave/taiwan-weather)
