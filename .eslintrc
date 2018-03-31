@@ -24,6 +24,10 @@
 		],
 		"semi": ["error", "always"],
 		"no-console": 0,
-		"prefer-template": 2
+		"prefer-template": 2,
+		"no-global-assign": ["error", { "exceptions": ["__logger"] }]
+	},
+	"globals": {
+		"__logger": true
 	}
 }
