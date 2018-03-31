@@ -3,6 +3,7 @@
 		"es6": true,
 		"node": true
 	},
+	"plugins": ["mocha"],
 	"extends": "eslint:recommended",
 	"rules": {
 		"indent": [
@@ -12,10 +13,7 @@
 				"SwitchCase": 1
 			}
 		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
+		"linebreak-style": ["error", "unix"],
 		"quotes": [
 			"error",
 			"single",
@@ -23,10 +21,7 @@
 				"allowTemplateLiterals": true
 			}
 		],
-		"semi": [
-			"error",
-			"always"
-		],
+		"semi": ["error", "always"],
 		"no-console": 0,
 		"prefer-template": 2
 	}
