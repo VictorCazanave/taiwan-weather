@@ -4,7 +4,7 @@
 	"description": "Fetch weather data of Taiwan",
 	"main": "./index",
 	"scripts": {
-		"test": "./node_modules/mocha/bin/mocha test/"
+		"test": "./node_modules/mocha/bin/mocha test"
 	},
 	"repository": {
 		"type": "git",
@@ -30,6 +30,7 @@
 	"devDependencies": {
 		"chai": "^4.1.2",
 		"eslint": "^4.18.2",
+		"eslint-plugin-mocha": "^5.0.0",
 		"mocha": "^4.0.1",
 		"nock": "^9.1.5",
 		"sinon": "^4.1.3",
