@@ -73,7 +73,6 @@ describe('Taiwan Weather', () => {
 				tw.getStream(
 					null,
 					err => {
-						expect(err).not.to.be.null;
 						expect(err instanceof Error).to.be.true;
 
 						done();
@@ -126,7 +125,6 @@ describe('Taiwan Weather', () => {
 				tw.getStream(
 					apiKey,
 					err => {
-						expect(err).not.to.be.null;
 						expect(err instanceof Error).to.be.true;
 
 						done();
@@ -171,7 +169,6 @@ describe('Taiwan Weather', () => {
 				tw.getStream(
 					apiKey,
 					err => {
-						expect(err).not.to.be.null;
 						expect(err instanceof Error).to.be.true;
 
 						done();
@@ -260,7 +257,6 @@ describe('Taiwan Weather', () => {
 
 			it('should call callback function with error', done => {
 				tw.get(null, {}, err => {
-					expect(err).not.to.be.null;
 					expect(err instanceof Error).to.be.true;
 
 					done();
@@ -317,7 +313,6 @@ describe('Taiwan Weather', () => {
 
 			it('should call callback function with error', done => {
 				tw.get(null, {}, err => {
-					expect(err).not.to.be.null;
 					expect(err instanceof Error).to.be.true;
 
 					done();
