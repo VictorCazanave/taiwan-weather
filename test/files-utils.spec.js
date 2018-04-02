@@ -28,7 +28,7 @@ describe('Files Utils', () => {
 		xdescribe('With no option', () => {});
 
 		//TODO: Fix problem with mockedStream
-		describe('With valid options', () => {
+		xdescribe('With valid options', () => {
 			let mockedStream = null;
 			let opt = null;
 			let existsSync = null;
