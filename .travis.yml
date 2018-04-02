@@ -4,6 +4,6 @@ node_js:
 install:
   - npm install -g codecov
 script:
-  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  - npm run coverage
 after_success:
   - codecov --file coverage/lcov.info --disable search
