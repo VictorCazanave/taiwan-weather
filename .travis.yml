@@ -7,4 +7,4 @@ install:
 script:
   - npm run coverage
 after_success:
-  - codecov --file coverage/lcov.info --disable search
+  - bash <(curl -s https://codecov.io/bash)
