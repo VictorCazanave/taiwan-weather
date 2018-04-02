@@ -1,8 +1,10 @@
 {
 	"env": {
 		"es6": true,
-		"node": true
+		"node": true,
+		"mocha": true
 	},
+	"plugins": ["mocha"],
 	"extends": "eslint:recommended",
 	"rules": {
 		"indent": [
@@ -12,10 +14,7 @@
 				"SwitchCase": 1
 			}
 		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
+		"linebreak-style": ["error", "unix"],
 		"quotes": [
 			"error",
 			"single",
@@ -23,11 +22,12 @@
 				"allowTemplateLiterals": true
 			}
 		],
-		"semi": [
-			"error",
-			"always"
-		],
+		"semi": ["error", "always"],
 		"no-console": 0,
-		"prefer-template": 2
+		"prefer-template": 2,
+		"no-global-assign": ["error", { "exceptions": ["__logger"] }]
+	},
+	"globals": {
+		"__logger": true
 	}
 }
