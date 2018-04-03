@@ -24,54 +24,58 @@ describe('Files Utils', () => {
 			});
 		});
 
-		// TODO
-		xdescribe('With no option', () => {});
-
-		//TODO: Fix problem with mockedStream
-		xdescribe('With valid options', () => {
-			let mockedStream = null;
+		describe('With valid options', () => {
+			let readableStream = null;
 			let opt = null;
 			let existsSync = null;
 			let mkdirSync = null;
-			let mockParse = null;
-			let mockDuplex = null;
-			let newParse = null;
+			let Parse = null;
 
 			beforeEach(() => {
-				mockedStream = new stream.Readable({
-					objectMode: true,
-					read: size => {
-						console.log('API STREAM READ');
-						return null;
-					}
-				});
+				readableStream = new stream.Readable({ read: () => null }); // Need to create a new Stream object for each test
 				opt = {};
 				existsSync = sinon.stub(fs, 'existsSync');
 				mkdirSync = sinon.stub(fs, 'mkdirSync');
-				mockParse = sinon.stub(unzipper, 'Parse');
-				mockDuplex = new stream.Duplex();
-				newParse = new unzipper.Parse();
+				Parse = sinon.stub(unzipper, 'Parse');
+				Parse.returns(readableStream);
 			});
 
 			afterEach(() => {
 				existsSync.restore();
 				mkdirSync.restore();
+				Parse.restore();
 			});
 
 			it('should create output dir when does not exist', done => {
 				existsSync.returns(false);
-				//mockParse.returns(mockDuplex);
-				console.log('111');
 
-				fu.getFiles(mockedStream, opt, () => {
-					console.log('222');
+				fu.getFiles(readableStream, opt, () => {
 					expect(mkdirSync).to.have.been.calledWith(opt.output);
 
-					mockedStream._readableState.ended = true;
-					mockedStream.emit('finish');
-					mockedStream.emit('emd');
 					done();
 				});
+
+				readableStream.emit('finish');
+			});
+
+			it('should call callback function without error when unzipper works well', done => {
+				fu.getFiles(readableStream, opt, err => {
+					expect(err).to.be.undefined;
+
+					done();
+				});
+
+				readableStream.emit('finish');
+			});
+
+			it('should call callback function with error when unzipper throw an error', done => {
+				fu.getFiles(readableStream, opt, err => {
+					expect(err instanceof Error).to.be.true;
+
+					done();
+				});
+
+				readableStream.emit('error');
 			});
 		});
 	});
