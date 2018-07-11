@@ -39,7 +39,7 @@ To use command line: [taiwan-weather-cli](https://www.npmjs.com/package/taiwan-w
 
 ## Data
 
-For now you can only fetch ~~[all towns and villages in Taiwan forecast data](http://opendata.cwb.gov.tw/catalog?group=f&dataid=D0047-093) (F-D0047-093)~~ (broken link).
+For now you can only fetch _all towns and villages in Taiwan forecast data_ (F-D0047-093).
 
 [Other data](http://opendata.cwb.gov.tw/datalist) may be added later.
 
