@@ -1,7 +1,7 @@
 {
 	"name": "taiwan-weather",
 	"version": "1.1.7",
-	"description": "Fetch weather data of Taiwan",
+	"description": "A node.js module to fetch and filter weather data from Taiwan Central Weather Bureau API",
 	"main": "./index",
 	"scripts": {
 		"test": "./node_modules/mocha/bin/mocha test",
@@ -24,17 +24,17 @@
 	},
 	"homepage": "https://github.com/VictorCazanave/taiwan-weather#readme",
 	"dependencies": {
-		"simple-node-logger": "^0.93.37",
-		"unzipper": "^0.9.2",
+		"simple-node-logger": "^0.93.42",
+		"unzipper": "^0.9.10",
 		"xml2js": "^0.4.19"
 	},
 	"devDependencies": {
-		"chai": "^4.1.2",
+		"chai": "^4.2.0",
 		"eslint": "^4.19.1",
-		"eslint-plugin-mocha": "^5.1.0",
+		"eslint-plugin-mocha": "^5.2.1",
 		"istanbul": "^0.4.5",
 		"mocha": "^4.1.0",
-		"nock": "^9.4.2",
+		"nock": "^9.6.1",
 		"sinon": "^4.5.0",
 		"sinon-chai": "^2.14.0"
 	}
