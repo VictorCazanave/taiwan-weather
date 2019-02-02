@@ -24,7 +24,7 @@
 	},
 	"homepage": "https://github.com/VictorCazanave/taiwan-weather#readme",
 	"dependencies": {
-		"simple-node-logger": "^0.93.42",
+		"simple-node-logger": "^18.12.21",
 		"unzipper": "^0.9.10",
 		"xml2js": "^0.4.19"
 	},
