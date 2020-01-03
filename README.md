@@ -6,7 +6,7 @@
 [![Dependency Status](https://david-dm.org/VictorCazanave/taiwan-weather.svg)](https://david-dm.org/VictorCazanave/taiwan-weather)
 [![Inline docs](http://inch-ci.org/github/VictorCazanave/taiwan-weather.svg?branch=master)](http://inch-ci.org/github/VictorCazanave/taiwan-weather)
 
-A node.js module to fetch and filter weather data from [Taiwan Central Weather Bureau API](http://opendata.cwb.gov.tw).
+A node.js module to fetch and filter weather data from [Taiwan Central Weather Bureau API](https://opendata.cwb.gov.tw).
 
 ## Installation
 
@@ -38,13 +38,15 @@ To use command line: [taiwan-weather-cli](https://www.npmjs.com/package/taiwan-w
 
 ## Data
 
-For now you can only fetch _all towns and villages in Taiwan forecast data_ (F-D0047-093).
+Currently this module can only fetch [Forecast Data for all Townships in Taiwan (F-D0047-093)](https://opendata.cwb.gov.tw/dataset/forecast/F-D0047-093).
 
-[Other data](http://opendata.cwb.gov.tw/datalist) may be added later.
+Since the Taiwan Central Weather Bureau now provides [more open data](https://opendata.cwb.gov.tw/dataset/) with better formats (RESTful API, JSON, XML) and [documentation](https://opendata.cwb.gov.tw/dist/opendata-swagger.html), this module may not be very useful anymore and won't be enhanced but will (try to) be maintained.
 
 ### Usage
 
-[CWB data usage instructions](http://opendata.cwb.gov.tw/usages)
+[CWB data usage instructions](https://opendata.cwb.gov.tw/devManual/insrtuction)
+
+[CWB data terms of use](https://opendata.cwb.gov.tw/devManual/rules)
 
 ### Filters
 
