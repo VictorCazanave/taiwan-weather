@@ -6,7 +6,7 @@
 [![Dependency Status](https://david-dm.org/VictorCazanave/taiwan-weather.svg)](https://david-dm.org/VictorCazanave/taiwan-weather)
 [![Inline docs](http://inch-ci.org/github/VictorCazanave/taiwan-weather.svg?branch=master)](http://inch-ci.org/github/VictorCazanave/taiwan-weather)
 
-A node.js module to fetch and filter weather data from [Taiwan Central Weather Bureau API](https://opendata.cwb.gov.tw).
+A node.js module to fetch and filter weather data from [Taiwan Central Weather Bureau](https://www.cwb.gov.tw).
 
 ## Installation
 
