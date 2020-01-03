@@ -2,7 +2,7 @@ const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 const nock = require('nock');
-const http = require('http');
+const https = require('https');
 const tw = require('../lib/taiwan-weather');
 const fu = require('../lib/files-utils');
 const expect = chai.expect;
@@ -10,9 +10,9 @@ chai.use(sinonChai);
 
 describe('Taiwan Weather', () => {
 	describe('#getStream', () => {
-		const host = 'http://opendata.cwb.gov.tw';
-		const path = '/opendataapi';
-		const query = '?dataid=F-D0047-093&authorizationkey=';
+		const host = 'https://opendata.cwb.gov.tw';
+		const path = '/fileapi/v1/opendataapi/F-D0047-093';
+		const query = '?format=ZIP&Authorization=';
 
 		describe('Without API key', () => {
 			beforeEach(() => {
@@ -53,16 +53,16 @@ describe('Taiwan Weather', () => {
 				);
 			});
 
-			it('should call http.get once with empty API key', done => {
-				sinon.spy(http, 'get');
+			it('should call https.get once with empty API key', done => {
+				sinon.spy(https, 'get');
 
 				tw.getStream(
 					null,
 					() => {
-						expect(http.get).to.have.been.calledOnce;
-						expect(http.get).to.have.been.calledWith(`${host}${path}${query}`);
+						expect(https.get).to.have.been.calledOnce;
+						expect(https.get).to.have.been.calledWith(`${host}${path}${query}`);
 
-						http.get.restore();
+						https.get.restore();
 						done();
 					},
 					null
@@ -105,16 +105,16 @@ describe('Taiwan Weather', () => {
 				nock.cleanAll();
 			});
 
-			it('should call http.get once with wrong API key', done => {
-				sinon.spy(http, 'get');
+			it('should call https.get once with wrong API key', done => {
+				sinon.spy(https, 'get');
 
 				tw.getStream(
 					apiKey,
 					() => {
-						expect(http.get).to.have.been.calledOnce;
-						expect(http.get).to.have.been.calledWith(`${host}${path}${query}${apiKey}`);
+						expect(https.get).to.have.been.calledOnce;
+						expect(https.get).to.have.been.calledWith(`${host}${path}${query}${apiKey}`);
 
-						http.get.restore();
+						https.get.restore();
 						done();
 					},
 					null
@@ -149,16 +149,16 @@ describe('Taiwan Weather', () => {
 				nock.cleanAll();
 			});
 
-			it('should call http.get once with API key', done => {
-				sinon.spy(http, 'get');
+			it('should call https.get once with API key', done => {
+				sinon.spy(https, 'get');
 
 				tw.getStream(
 					apiKey,
 					() => {
-						expect(http.get).to.have.been.calledOnce;
-						expect(http.get).to.have.been.calledWith(`${host}${path}${query}${apiKey}`);
+						expect(https.get).to.have.been.calledOnce;
+						expect(https.get).to.have.been.calledWith(`${host}${path}${query}${apiKey}`);
 
-						http.get.restore();
+						https.get.restore();
 						done();
 					},
 					null
@@ -191,16 +191,16 @@ describe('Taiwan Weather', () => {
 				nock.cleanAll();
 			});
 
-			it('should call http.get once with API key', done => {
-				sinon.spy(http, 'get');
+			it('should call https.get once with API key', done => {
+				sinon.spy(https, 'get');
 
 				tw.getStream(
 					apiKey,
 					() => {
-						expect(http.get).to.have.been.calledOnce;
-						expect(http.get).to.have.been.calledWith(`${host}${path}${query}${apiKey}`);
+						expect(https.get).to.have.been.calledOnce;
+						expect(https.get).to.have.been.calledWith(`${host}${path}${query}${apiKey}`);
 
-						http.get.restore();
+						https.get.restore();
 						done();
 					},
 					null
