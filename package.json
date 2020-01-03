@@ -1,6 +1,6 @@
 {
 	"name": "taiwan-weather",
-	"version": "1.1.9",
+	"version": "1.1.10",
 	"description": "A node.js module to fetch and filter weather data from Taiwan Central Weather Bureau API",
 	"main": "./index",
 	"scripts": {
